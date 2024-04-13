@@ -1,0 +1,35 @@
+class KeyboardTrainer {
+    function void run() {
+        var char key;
+        var int cursorX, cursorY;
+
+        // Инициализация экрана
+        do Screen.setColor(false);
+        do Screen.clearScreen();
+
+        do Screen.setColor(true);
+
+        // Установка текста в верхней части экрана
+        cursorX = 5;
+        cursorY = 5;
+        do Screen.drawString("Тестовый текст", cursorX, cursorY);
+
+        // Подготовка нижней части экрана для ввода текста
+        cursorY = 150;
+        cursorX = 5;
+
+        // Цикл для чтения клавиш и вывода их на экран
+        while (true) {
+            let key = Keyboard.keyPressed();
+            if (key != 0) {  // проверка, что была нажата клавиша
+                do Screen.drawChar(key, cursorX, cursorY);
+                let cursorX = cursorX + 7;
+                if (key == 13) {  // проверка на нажатие Enter для выхода
+                    break;
+                }
+            }
+            do Sys.wait(5);
+        }
+        return;
+    }
+}
