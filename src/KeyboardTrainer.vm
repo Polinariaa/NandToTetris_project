@@ -1,0 +1,117 @@
+function KeyboardTrainer.run 4
+push constant 0
+call Screen.setColor 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 5
+pop local 1
+push constant 5
+pop local 2
+push constant 27
+call String.new 1
+push constant 1056
+call String.appendChar 2
+push constant 1118
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 181
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 1027
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 8218
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 1109
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 1030
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 8249
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 8470
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 8218
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 181
+call String.appendChar 2
+push constant 1056
+call String.appendChar 2
+push constant 1108
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 1027
+call String.appendChar 2
+push constant 1057
+call String.appendChar 2
+push constant 8218
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 150
+pop local 2
+push constant 5
+pop local 1
+push constant 0
+pop local 3
+label WHILE_EXP0
+push local 3
+not
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+call Output.printChar 1
+pop temp 0
+push local 1
+push constant 7
+add
+pop local 1
+push local 0
+push constant 13
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+pop local 3
+label IF_FALSE1
+label IF_FALSE0
+push constant 5
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

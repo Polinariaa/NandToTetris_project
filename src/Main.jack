@@ -1,8 +1,23 @@
 class Main {
     function void main() {
-        var KeyboardTrainer train;
-        let train = KeyboardTrainer.new();
-        do train.run();
+        var String toCheck;
+        var String userInput;
+
+        let toCheck = "HELLO";
+        do Output.printString(toCheck);
+        do Output.println();
+
+        let userInput = Keyboard.readLine("Type it");
+        do Output.printString(userInput);
+        do Output.println();
+
+        if (StringExtensions.Compare(toCheck, userInput)) {
+            do Output.printString("Ok");
+        } else {
+            do Output.printString("Not ok");
+        }
+        do Output.println();
+        // do KeyboardTrainer.run();
         return;
     }
 }
