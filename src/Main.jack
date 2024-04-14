@@ -1,23 +1,10 @@
 class Main {
     function void main() {
-        var String toCheck;
-        var String userInput;
-
-        let toCheck = "HELLO";
-        do Output.printString(toCheck);
-        do Output.println();
-
-        let userInput = Keyboard.readLine("Type it");
-        do Output.printString(userInput);
-        do Output.println();
-
-        if (StringExtensions.Compare(toCheck, userInput)) {
-            do Output.printString("Ok");
-        } else {
-            do Output.printString("Not ok");
-        }
-        do Output.println();
-        // do KeyboardTrainer.run();
+        var SnakeGame game;
+        let game = SnakeGame.new();
+        do game.run();
+	    do game.dispose();
         return;
     }
+
 }
