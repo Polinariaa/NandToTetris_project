@@ -55,16 +55,13 @@ class Drawer {
         return;
     }
 
-    function void drawStatus() {
+    function void drawStatus(int speed, int length) {
         do Output.moveCursor(22, 0);
-        do Output.printString("Level: ");
-        do Output.printInt(0);
-        do Output.moveCursor(22, 25);
-        do Output.printString("Score: ");
-        do Output.printInt(0);
+        do Output.printString("Speed: ");
+        do Output.printInt(speed);
         do Output.moveCursor(22, 52);
         do Output.printString("Length: ");
-        do Output.printInt(0);
+        do Output.printInt(length);
         return;
     }
 }

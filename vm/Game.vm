@@ -1,11 +1,13 @@
 function Game.new 0
-push constant 4
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push constant 0
 pop this 0
 push constant 0
 pop this 3
+push constant 150
+pop this 4
 push constant 120
 push constant 60
 call Snake.new 2
@@ -128,6 +130,10 @@ label IF_TRUE6
 push this 1
 call Snake.grow 1
 pop temp 0
+push this 4
+push constant 2
+sub
+pop this 4
 push pointer 0
 call Game._placeApple 1
 pop temp 0
@@ -141,7 +147,12 @@ push this 1
 call Snake.getHead 1
 call Drawer.drawSnakeBlock 1
 pop temp 0
-call Drawer.drawStatus 0
+push constant 150
+push this 4
+sub
+push this 1
+call Snake.getLength 1
+call Drawer.drawStatus 2
 pop temp 0
 push this 1
 call Snake.reduceTail 1
@@ -149,7 +160,7 @@ pop temp 0
 push pointer 0
 call Game._checkLose 1
 pop temp 0
-push constant 150
+push this 4
 call Sys.wait 1
 pop temp 0
 goto WHILE_EXP0

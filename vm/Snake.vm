@@ -1,5 +1,5 @@
 function Snake.new 0
-push constant 4
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push constant 10
@@ -14,6 +14,8 @@ sub
 push argument 1
 call SnakeBlock.new 2
 pop this 2
+push constant 1
+pop this 4
 push this 1
 push this 2
 call SnakeBlock.link 2
@@ -60,7 +62,16 @@ call SnakeBlock.link 2
 pop temp 0
 push local 0
 pop this 1
+push this 4
+push constant 1
+add
+pop this 4
 push constant 0
+return
+function Snake.getLength 0
+push argument 0
+pop pointer 0
+push this 4
 return
 function Snake.grow 0
 push argument 0
@@ -128,6 +139,10 @@ call SnakeBlock.dispose 1
 pop temp 0
 push local 0
 pop this 2
+push this 4
+push constant 1
+sub
+pop this 4
 push constant 0
 return
 function Snake.getHead 0

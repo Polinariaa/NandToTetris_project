@@ -4,10 +4,12 @@ class Game {
     field Apple apple;
 
     field int seed;
+    field int speed;
 
     constructor Game new() {
         let score = 0;
         let seed = 0;
+        let speed = 150;
         let snake = Snake.new(120, 60);
         let apple = Apple.new(0, 0);
         do snake.setDirection(Direction.Right());
@@ -63,17 +65,18 @@ class Game {
                     // do Drawer.cleanApple(apple);
 
                     do snake.grow();
+                    let speed = speed - 2;
                     do _placeApple();
                 }
             }
 
             do Drawer.cleanSnakeBlock(snake.getTail());
             do Drawer.drawSnakeBlock(snake.getHead());
-            do Drawer.drawStatus();
+            do Drawer.drawStatus(150 - speed, snake.getLength());
             do snake.reduceTail();
             do _checkLose();
 
-            do Sys.wait(150);
+            do Sys.wait(speed);
         }
 
         return;
