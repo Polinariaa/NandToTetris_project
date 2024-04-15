@@ -54,4 +54,17 @@ class Drawer {
 
         return;
     }
+
+    function void drawStatus() {
+        do Output.moveCursor(22, 0);
+        do Output.printString("Level: ");
+        do Output.printInt(0);
+        do Output.moveCursor(22, 25);
+        do Output.printString("Score: ");
+        do Output.printInt(0);
+        do Output.moveCursor(22, 52);
+        do Output.printString("Length: ");
+        do Output.printInt(0);
+        return;
+    }
 }

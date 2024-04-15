@@ -141,6 +141,8 @@ push this 1
 call Snake.getHead 1
 call Drawer.drawSnakeBlock 1
 pop temp 0
+call Drawer.drawStatus 0
+pop temp 0
 push this 1
 call Snake.reduceTail 1
 pop temp 0

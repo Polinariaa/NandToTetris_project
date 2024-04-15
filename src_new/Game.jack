@@ -69,6 +69,7 @@ class Game {
 
             do Drawer.cleanSnakeBlock(snake.getTail());
             do Drawer.drawSnakeBlock(snake.getHead());
+            do Drawer.drawStatus();
             do snake.reduceTail();
             do _checkLose();
 
