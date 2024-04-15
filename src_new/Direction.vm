@@ -1,0 +1,14 @@
+function Direction.Up 0
+push constant 1
+return
+function Direction.Down 0
+push constant 1
+neg
+return
+function Direction.Left 0
+push constant 2
+return
+function Direction.Right 0
+push constant 2
+neg
+return

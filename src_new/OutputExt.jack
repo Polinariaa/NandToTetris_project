@@ -1,0 +1,10 @@
+class OutputExt {
+    function void printLine(String string) {
+        var String s;
+        let s = string;
+        do Output.printString(s);
+        do Output.println();
+
+        return;
+    }
+}

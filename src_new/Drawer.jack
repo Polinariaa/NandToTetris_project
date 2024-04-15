@@ -1,0 +1,57 @@
+class Drawer {
+    function void drawSnakeBlock(SnakeBlock snakeBlock) {
+        do Screen.setColor(true);
+        do Drawer._fillBlock(snakeBlock);
+
+        return;
+    }
+
+    function void cleanSnakeBlock(SnakeBlock snakeBlock) {
+        do Screen.setColor(false);
+        do Drawer._fillBlock(snakeBlock);
+        
+        return;
+    }
+
+    function void drawApple(Apple apple) {
+        do Screen.setColor(true);
+        do Drawer._fillApple(apple);
+
+        return;
+    }
+
+    function void cleanApple(Apple apple) {
+        do Screen.setColor(false);
+        do Drawer._fillApple(apple);
+
+        return;
+    }
+
+    function void _fillApple(Apple apple) {
+        var int x, y, width;
+        let width = 5;
+        
+        let x = apple.getX();
+        let y = apple.getY();
+        
+        do Screen.drawCircle(x, y, width);
+
+        return;
+    }
+
+    function void _fillBlock(SnakeBlock snakeBlock) {
+        var int x, y, width, x0, y0, x1, y1;
+        let width = 5;
+        
+        let x = snakeBlock.getX();
+        let y = snakeBlock.getY();
+        let x0 = x - width;
+        let y0 = y - width;
+        let x1 = x + width;
+        let y1 = y + width;
+
+        do Screen.drawRectangle(x0, y0, x1, y1);
+
+        return;
+    }
+}

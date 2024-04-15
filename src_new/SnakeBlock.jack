@@ -1,0 +1,49 @@
+class SnakeBlock {
+    field SnakeBlock next, prev;
+    field int x;
+    field int y;
+
+    constructor SnakeBlock new(int posX, int posY) {
+        let next = null;
+        let prev = null;
+        let x = posX;
+        let y = posY;
+        
+        return this;
+    }
+
+    method void link(SnakeBlock nextBlock) {
+        let next = nextBlock;
+        do nextBlock.setPrevBlock(this);
+
+        return;
+    }
+
+    method void setPrevBlock(SnakeBlock prevBlock) {
+        let prev = prevBlock;
+
+        return;
+    }
+
+    method SnakeBlock getNext() {
+        return next;
+    }
+
+    method SnakeBlock getPrev() {
+        return prev;
+    }
+
+    method int getX() {
+        return x;
+    }
+
+    method int getY() {
+        return y;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        
+        return;
+    }
+}

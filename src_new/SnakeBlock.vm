@@ -1,0 +1,60 @@
+function SnakeBlock.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push constant 0
+pop this 1
+push argument 0
+pop this 2
+push argument 1
+pop this 3
+push pointer 0
+return
+function SnakeBlock.link 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push argument 1
+push pointer 0
+call SnakeBlock.setPrevBlock 2
+pop temp 0
+push constant 0
+return
+function SnakeBlock.setPrevBlock 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function SnakeBlock.getNext 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function SnakeBlock.getPrev 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function SnakeBlock.getX 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function SnakeBlock.getY 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function SnakeBlock.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

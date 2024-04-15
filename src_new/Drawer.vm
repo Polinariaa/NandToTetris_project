@@ -1,0 +1,87 @@
+function Drawer.drawSnakeBlock 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call Drawer._fillBlock 1
+pop temp 0
+push constant 0
+return
+function Drawer.cleanSnakeBlock 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call Drawer._fillBlock 1
+pop temp 0
+push constant 0
+return
+function Drawer.drawApple 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call Drawer._fillApple 1
+pop temp 0
+push constant 0
+return
+function Drawer.cleanApple 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call Drawer._fillApple 1
+pop temp 0
+push constant 0
+return
+function Drawer._fillApple 3
+push constant 5
+pop local 2
+push argument 0
+call Apple.getX 1
+pop local 0
+push argument 0
+call Apple.getY 1
+pop local 1
+push local 0
+push local 1
+push local 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Drawer._fillBlock 7
+push constant 5
+pop local 2
+push argument 0
+call SnakeBlock.getX 1
+pop local 0
+push argument 0
+call SnakeBlock.getY 1
+pop local 1
+push local 0
+push local 2
+sub
+pop local 3
+push local 1
+push local 2
+sub
+pop local 4
+push local 0
+push local 2
+add
+pop local 5
+push local 1
+push local 2
+add
+pop local 6
+push local 3
+push local 4
+push local 5
+push local 6
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return

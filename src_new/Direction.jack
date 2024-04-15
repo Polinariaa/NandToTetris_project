@@ -1,0 +1,17 @@
+class Direction {
+    function int Up() {
+        return 1;
+    }
+
+    function int Down() {
+        return -1;
+    }
+
+    function int Left() {
+        return 2;
+    }
+
+    function int Right() {
+        return -2;
+    }
+}

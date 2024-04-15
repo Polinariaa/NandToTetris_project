@@ -1,0 +1,40 @@
+function SnakeBlockDrawer.draw 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call SnakeBlockDrawer._drawBlock 1
+pop temp 0
+push constant 0
+return
+function SnakeBlockDrawer.clean 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call SnakeBlockDrawer._drawBlock 1
+pop temp 0
+push constant 0
+return
+function SnakeBlockDrawer._drawBlock 3
+push constant 5
+pop local 2
+push argument 0
+call SnakeBlock.getX 1
+pop local 0
+push argument 0
+call SnakeBlock.getY 1
+pop local 1
+push local 0
+push local 1
+push local 0
+push local 2
+add
+push local 1
+push local 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return

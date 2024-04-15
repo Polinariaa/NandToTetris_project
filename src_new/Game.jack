@@ -1,0 +1,162 @@
+class Game {
+    field int score;
+    field Snake snake;
+    field Apple apple;
+
+    field int seed;
+
+    constructor Game new() {
+        let score = 0;
+        let seed = 0;
+        let snake = Snake.new(120, 60);
+        let apple = Apple.new(0, 0);
+        do snake.setDirection(Direction.Right());
+
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        
+        return;
+    }
+
+    method void run() {
+        var SnakeBlock currentHead;
+        var int direction;
+        var boolean exit;
+        var char key;
+
+        do _printHelp();
+        do _waitForStart();
+
+        do _placeApple();
+        let exit = false;
+        while(~exit) {
+            let key = Keyboard.keyPressed();
+            if( key = 81 ) {
+                let exit = true;
+            }
+
+            if (key = 130) {
+                do snake.setDirection(Direction.Left());
+            }
+
+            if (key = 131) {
+                do snake.setDirection(Direction.Up());
+            }
+
+            if (key = 132) {
+                do snake.setDirection(Direction.Right());
+            }
+
+            if (key = 133) {
+                do snake.setDirection(Direction.Down());
+            }
+
+            do snake.grow();
+
+            let currentHead = snake.getHead();
+
+            if (currentHead.getX() = apple.getX()) {
+                if (currentHead.getY() = apple.getY()) {
+                    // do Drawer.cleanApple(apple);
+
+                    do snake.grow();
+                    do _placeApple();
+                }
+            }
+
+            do Drawer.cleanSnakeBlock(snake.getTail());
+            do Drawer.drawSnakeBlock(snake.getHead());
+            do snake.reduceTail();
+            do _checkLose();
+
+            do Sys.wait(150);
+        }
+
+        return;
+    }
+
+    method void _placeApple() {
+        var int newX, newY;
+        let newX = Random.randRange(512) / 10 * 10;
+        let newX = Math.max(5, Math.min(newX, 490));
+
+        let newY = Random.randRange(256) / 10 * 10;
+        let newY = Math.max(5, Math.min(newY, 240));
+
+        do apple.setX(newX);
+        do apple.setY(newY);
+        do Drawer.drawApple(apple);
+
+        return;
+    }
+
+    method void _checkLose() {
+        var int headX, headY;
+        var SnakeBlock head;
+
+        let head = snake.getHead();
+
+        let headX = head.getX();
+        let headY = head.getY();
+
+        if (headX < 5) {
+            do Sys.halt();
+        }
+
+        if (headX > 506) {
+            do Sys.halt();
+        }
+
+        if (headY < 5) {
+            do Sys.halt();
+        }
+
+        if (headY > 250) {
+            do Sys.halt();
+        }
+
+        // if (snake.selfCrossed() = true) {
+        //     do Sys.halt();
+        // }
+
+        return;
+    }
+
+    method void _printHelp() {
+        do OutputExt.printLine("Everyone knows how to play.");
+        do OutputExt.printLine("But if you are a Zoomer... God bless you");
+        do OutputExt.printLine("1. Use arrows on Keyboard to move the snake");
+        do OutputExt.printLine("2. Eat ApPlEs");
+        do OutputExt.printLine("3. DO NOT eat yourself");
+        do OutputExt.printLine("4. Be careful of walls");
+        do OutputExt.printLine("Now press any key except the one that turns off your PC and have fun (or we'll come for you and for your dog).");
+
+        return;
+    }
+
+    method void _waitForStart() {
+        var int key;
+        let key = 0;
+
+        while(~key) {
+            do _generateSeed();
+            do Random.setSeed(seed);
+            let key = Keyboard.keyPressed();
+        }
+        do Screen.clearScreen();
+
+        return;
+    }
+
+    method void _generateSeed() {
+        let seed = seed + 1;
+        if( seed = 32767 ) {
+            let seed = 0;
+        }
+
+        return;
+    }
+}
