@@ -102,19 +102,19 @@ class Game {
         let headX = head.getX();
         let headY = head.getY();
 
-        if (headX < 5) {
+        if (headX < 7) {
             do Sys.halt();
         }
 
-        if (headX > 506) {
+        if (headX > 504) {
             do Sys.halt();
         }
 
-        if (headY < 5) {
+        if (headY < 7) {
             do Sys.halt();
         }
 
-        if (headY > 250) {
+        if (headY > 248) {
             do Sys.halt();
         }
 

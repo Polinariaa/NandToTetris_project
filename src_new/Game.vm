@@ -209,7 +209,7 @@ push local 2
 call SnakeBlock.getY 1
 pop local 1
 push local 0
-push constant 5
+push constant 7
 lt
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -218,7 +218,7 @@ call Sys.halt 0
 pop temp 0
 label IF_FALSE0
 push local 0
-push constant 506
+push constant 504
 gt
 if-goto IF_TRUE1
 goto IF_FALSE1
@@ -227,7 +227,7 @@ call Sys.halt 0
 pop temp 0
 label IF_FALSE1
 push local 1
-push constant 5
+push constant 7
 lt
 if-goto IF_TRUE2
 goto IF_FALSE2
@@ -236,7 +236,7 @@ call Sys.halt 0
 pop temp 0
 label IF_FALSE2
 push local 1
-push constant 250
+push constant 248
 gt
 if-goto IF_TRUE3
 goto IF_FALSE3
